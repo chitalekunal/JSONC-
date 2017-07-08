@@ -11,3 +11,7 @@ With keys provided, program finds the result for you.
 
 The program can be used in different C++ programs and its DLL/SO file can be disrtibuted with the program.
 
+Future rollouts will have following features
+1. finding values from JSON data based on value of keys.
+2. Suppport for foreign key
+3. Support for JOIN
