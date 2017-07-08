@@ -25,8 +25,8 @@ public:
 	JSONPARSER JSONParser(std::string data);
 	JSONPARSER ~JSONParser();
 	JSONPARSER std::string GetValue(std::string pair);
-	JSONPARSER std::string GetValueFromKey(std::string keySeq);
-	JSONPARSER bool isArray(std::string str);
+	JSONPARSER std::string GetValueFromKey(std::vector<std::string> keySeq, std::string information = "temp", int def = 1);
+	JSONPARSER std::vector<std::string> ParseArray(std::string Array, int keys);
 };
 
 
