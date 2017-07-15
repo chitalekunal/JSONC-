@@ -34,6 +34,7 @@ class JSONParser
 	Node *root;
 	JSONPARSER void CreateTree(std::string JSON, Node *node);
 	JSONPARSER void InitializePointer(Node **ptr, int start, int end);
+	JSONPARSER void DestroyTree( Node *root);
 public:
 	JSONPARSER JSONParser( std::string filename );
 	JSONPARSER ~JSONParser();

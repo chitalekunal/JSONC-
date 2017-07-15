@@ -147,5 +147,16 @@ void JSONParser::InitializePointer(Node **ptr, int start, int end) {
 	}
 }
  JSONParser::~JSONParser() {
-
+	 DestroyTree(root);
 }
+
+ void JSONParser::DestroyTree(Node *root) {
+	 for (int i = 0; i < root->count; i++) {
+		 if (root->ptr[i] != NULL) {
+			 DestroyTree(root->ptr[i]);
+		 }
+		 else {
+			 free(root->ptr[i]);
+		 }
+	 }
+ }
