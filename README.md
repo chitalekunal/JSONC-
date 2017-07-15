@@ -1,17 +1,16 @@
 # JSONCpp
-JSONCpp is a program to parse JSON object at faster rate.
-As input you have to provide JSON file and keys.
-Based on keys result is returned to callee program.
 
-Keys are provided in format as below.
+A light weight JSON parser that can be used in applications.
+The code is created using VC++ hence it is tested on Windows Platform.
+Currently I am testing it for Linux and its limitations.
 
-__key1[key2[key3[key4[...]]]__
+The program needs filename and JSON query as an Input.
+Using JSONParser constructor you can pass the file name.
+and query will help you fetch the result from the JSON file.
 
-With keys provided, program finds the result for you.
+~~~~
+	JSONParser j(<filename>);
+	j.FetchValue(<query>);
+~~~~
 
-The program can be used in different C++ programs and its DLL/SO file can be disrtibuted with the program.
-
-Future rollouts will have following features
-1. finding values from JSON data based on value of keys.
-2. Suppport for foreign key
-3. Support for JOIN
+In above example <filename> and <query> are the standard string object (std::string).
