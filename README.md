@@ -14,3 +14,32 @@ and query will help you fetch the result from the JSON file.
 ~~~~
 
 In above example <filename> and <query> are the standard string object (std::string).
+
+Below is an example of how query is provided.
+Consider following JSON example
+~~~~
+{
+    "quiz": {
+        "sport": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                "options": [
+                    "New York Bulls",
+                    "Los Angeles Kings",
+                    "Golden State Warriros",
+                    "Huston Rocket"
+                ],
+                "answer": "Huston Rocket"
+            }
+        }
+	}
+}
+~~~~
+
+So if I want to find 4th object from above example my query will be like.
+
+~~~~
+quiz[sport[q1[options[4]]]]
+~~~~
+
+With above query you will get value _Huston Rocket_
