@@ -14,19 +14,30 @@
 #include <algorithm>
 #include "..\Utilities\Utilities.h"
 
+
+
 class JSONParser
 {
-	std::vector<std::string> JSONvec;
-	std::string data;
-	JSONPARSER std::vector<std::string> SeprateObjectsByComma(std::string Objects);
-	JSONPARSER std::string GetObjects(std::string Objects);
+	class Node {
+		public:
+		std::string name;
+		int count;
+		Node **ptr;
+		int capacity;
+		JSONPARSER Node() {
+			count = 0;
+			ptr = 0;
+			capacity = 0;
+		}
+	};
 
+	Node *root;
+	JSONPARSER void CreateTree(std::string JSON, Node *node);
+	JSONPARSER void InitializePointer(Node **ptr, int start, int end);
 public:
-	JSONPARSER JSONParser(std::string data);
+	JSONPARSER JSONParser( std::string filename );
 	JSONPARSER ~JSONParser();
-	JSONPARSER std::string GetValue(std::string pair);
-	JSONPARSER std::string GetValueFromKey(std::vector<std::string> keySeq, std::string information = "temp", int def = 1);
-	JSONPARSER std::vector<std::string> ParseArray(std::string Array, int keys);
+	JSONPARSER std::string FetchValue(std::string query);
 };
 
 
