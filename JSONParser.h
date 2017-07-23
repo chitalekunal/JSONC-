@@ -22,23 +22,33 @@ class JSONParser
 		public:
 		std::string name;
 		int count;
-		Node **ptr;
-		int capacity;
+		std::vector<Node *> ptr;
+		struct datatypeVar {
+			unsigned int boolean : 1;
+			unsigned int number : 1;
+			unsigned int nullable : 1;
+		}DTV;
 		JSONPARSER Node() {
 			count = 0;
-			ptr = 0;
-			capacity = 0;
+			DTV.boolean = 0;
+			DTV.number = 0;
+			DTV.nullable = 0;
 		}
 	};
 
-	Node *root;
+	Node *ROOT;
+	int ErrCode = 0;
+	std::string errBuffer;
 	JSONPARSER void CreateTree(std::string JSON, Node *node);
-	JSONPARSER void InitializePointer(Node **ptr, int start, int end);
 	JSONPARSER void DestroyTree( Node *root);
+	void Vectorize(std::string buff, std::vector<std::string> *vec);
 public:
 	JSONPARSER JSONParser( std::string filename );
 	JSONPARSER ~JSONParser();
 	JSONPARSER std::string FetchValue(std::string query);
+	JSONPARSER int getObjectCountOf(std::string query);
+	JSONPARSER std::string getErrorReason();
+	JSONPARSER bool getErrorStatus();
 };
 
 
